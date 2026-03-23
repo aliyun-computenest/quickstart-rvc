@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="计算巢是阿里云开放给企业应用服务商的服务管理平台。服务商能够在计算巢上发布私有化部署服务，为其客户提供云上软件一键部署的能力；同时也支持全托管模式的服务，赋能服务商托管其客户资源。">
+  <title>RVC computing nest rapid deployment - Aliyun 计算巢 x Demo</title>
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  
+
+  
+
+  
+  
+
+  
+    <script src="../search/main.js"></script>
+  
+
+  
+
+  <script src="../js/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="./img/logo-2x.png">
+        </div>
+        <div class="nav-list">
+          <ul>
+          
+              <li><a href="#rvc-computing-nest-rapid-deployment">RVC computing nest rapid deployment</a></li>
+              
+                  <li><a href="#overview">Overview</a></li>
+                  
+              
+                  <li><a href="#billing-description">Billing Description</a></li>
+                  
+              
+                  <li><a href="#required-permissions-for-ram-users">Required Permissions for RAM Users</a></li>
+                  
+              
+                  <li><a href="#deployment-process">Deployment process</a></li>
+                  
+              
+                  <li><a href="#usage-tutorial">Usage Tutorial</a></li>
+                  
+                      <li class="li-h3"><a href="#training-tutorial">Training Tutorial</a></li>
+                  
+                      <li class="li-h3"><a href="#reasoning-tutorial">Reasoning tutorial</a></li>
+                  
+              
+          
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content theme-github">
+      
+      <div class="content-inner">        
+        
+        <h1 id="rvc-computing-nest-rapid-deployment">RVC computing nest rapid deployment</h1>
+<h2 id="overview">Overview</h2>
+<p>RVC sound cloning technology (Retrieval-based-Voice-Conversion-WebUI) is a sound synthesis technology based on deep learning. The core principle is to learn and match the input speech sample with the speech characteristics of the target speaker through deep learning model training. This model is then used to speech synthesize the new text so that the synthesized speech sounds just like the target speaker.</p>
+<h2 id="billing-description">Billing Description</h2>
+<table>
+<thead>
+<tr>
+<th>Resource Type</th>
+<th>Billing Mode</th>
+<th>Key Configurations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACS Cluster</td>
+<td>Pay-As-You-Go</td>
+<td>Billing is based on the selected GPU type and quantity. GU8TF/GU8TEF/P16EN specifications vary in price.</td>
+</tr>
+<tr>
+<td>OSS Storage</td>
+<td>Pay-As-You-Go</td>
+<td>The storage model file. We recommend that you select the storage type in the same region as the cluster.</td>
+</tr>
+<tr>
+<td>NAT Gateway</td>
+<td>Pay-As-You-Go</td>
+<td>Automatically created when Internet access is enabled. Billing is based on usage time and bandwidth</td>
+</tr>
+</tbody>
+</table>
+<h2 id="required-permissions-for-ram-users">Required Permissions for RAM Users</h2>
+<p>To deploy an instance, you need to access and create some Alibaba Cloud resources. Therefore, your account must contain permissions for the following resources. And you need to activate the ACS service. After activation, you can see the following in the upper right corner of the ACS console:
+<strong>Activate Status: GPU Pay-As-You-Go has been activated, GPU capacity reservation has been activated, and CPU Pay-As-You-Go has been activated</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Permission policy name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AliyunVPCFullAccess</td>
+<td>Permissions to manage a VPC</td>
+</tr>
+<tr>
+<td>AliyunROSFullAccess</td>
+<td>Manage permissions for Resource Orchestration Service (ROS)</td>
+</tr>
+<tr>
+<td>AliyunCSFullAccess</td>
+<td>Manage permissions for Container Service (CS)</td>
+</tr>
+<tr>
+<td>AliyunComputeNestUserFullAccess</td>
+<td>Manage user-side permissions for the compute nest service (ComputeNest)</td>
+</tr>
+<tr>
+<td>AliyunOSSFullAccess</td>
+<td>Permissions to manage Network Object Storage Service (OSS)</td>
+</tr>
+</tbody>
+</table>
+<p>In addition, * * need to contact PDSA to add GPU whitelist before deployment.**</p>
+<h2 id="deployment-process">Deployment process</h2>
+<ol>
+<li>Enter the service deployment page through the calculation nest <a href="https://computenest.console.aliyun.com/service/instance/create/cn-hangzhou?type=user&amp;ServiceId=service-5b5e847e82d34c6eae4b">Quick Deployment Link</a>.</li>
+</ol>
+<p><img alt="img.png" src="images-en/img.png" /></p>
+<ol>
+<li>By submitting a work order, let customer service open the white list of P16EN instances before the next deployment.</li>
+</ol>
+<p><img alt="img_1.png" src="../images-en/img_1.png" /></p>
+<ol>
+<li>GPU series currently only has P16EN, so there is no need to select it. After selecting ACS available area, click "Next Confirm Order".</li>
+</ol>
+<p><img alt="img_2.png" src="../images-en/img_2.png" /></p>
+<ol>
+<li>Then click Create Now to enter the deployment process of the service instance.</li>
+</ol>
+<p><img alt="img_3.png" src="../images-en/img_3.png" /></p>
+<ol>
+<li>After the deployment is complete, click View Service Instance to view the public network address of the RVC service.</li>
+</ol>
+<p><img alt="img_4.png" src="../images-en/img_4.png" /></p>
+<h2 id="usage-tutorial">Usage Tutorial</h2>
+<p>The use of RVC should first use the prepared voice sound source for training, training to obtain the corresponding model, and then reasoning on the specified sound source, you can change the specified sound source into the training voice, to achieve the effect of sound change.</p>
+<h3 id="training-tutorial">Training Tutorial</h3>
+<ol>
+<li>Click the public network address in the service instance details to enter the RVC Web page, and first enter the training page.</li>
+</ol>
+<p><img alt="img_5.png" src="images-en/img_5.png" /></p>
+<ol>
+<li>The training-related configuration should be carried out first, mainly setting the experiment name and training folder. Note that the folder here is the corresponding directory in the container pod, as shown below.</li>
+</ol>
+<p><img alt="img_6.png" src="images-en/img_6.png" /></p>
+<ol>
+<li>Upload the voice samples to be trained to the training folder we set up above. The specific process is given below.
+-In the computing nest service instance, click Resources, then click Container Pod Resources to find the pod corresponding to rvc, and click Remote Connection.</li>
+</ol>
+<p><img alt="img_7.png" src="../images-en/img_7.png" /></p>
+<p>-After clicking Remote Connection, you can enter the pod and create a train directory under the pod internal/workspace/rvc-git directory as the training folder.</p>
+<p><img alt="img_8.png" src="../images-en/img_8.png" /></p>
+<p>-Upload the prepared voice samples to the train directory. Click the file on the console to open the file tree, and then find the train directory to upload the prepared voice samples.</p>
+<p><img alt="img_9.png" src="../images-en/img_9.png" /></p>
+<p><img alt="img_10.png" src="../images-en/img_10.png" /></p>
+<p><img alt="img_11.png" src="../images-en/img_11.png" />
+4. After the voice sample is uploaded, the training can be started. First, data processing is carried out. Click "Processing Data" for data processing. The output information will prompt the processing progress.</p>
+<p><img alt="img_12.png" src="../images-en/img_12.png" /></p>
+<ol>
+<li>Click "Feature Extraction" to extract features, and the output information will prompt the progress of feature extraction.</li>
+</ol>
+<p><img alt="img_13.png" src="images-en/img_13.png" /></p>
+<ol>
+<li>Click "Training Model" to train the model. Error will be prompted here, but it is actually a false alarm. The training is still going on normally,
+You can run the tail -f /var/logs/app.log command in the pod in step 3 to view the training progress.</li>
+</ol>
+<p><img alt="img_15.png" src="images-en/img_15.png" /></p>
+<p><img alt="img_16.png" src="../images-en/img_16.png" /></p>
+<ol>
+<li>After the training is completed, click "Training Feature Index" and see that the index has been successfully constructed, that is, the training has been successful.</li>
+</ol>
+<p><img alt="img_17.png" src="../images-en/img_17.png" /></p>
+<h3 id="reasoning-tutorial">Reasoning tutorial</h3>
+<p>After the training is completed, we can reason about the voice we want to change. The specific steps are as follows:
+1. The RVC web page returns to the model inference page and clicks "Refresh Tone List and Index Path" to load the model that has just been trained.</p>
+<p><img alt="img_18.png" src="../images-en/img_18.png" /></p>
+<ol>
+<li>Select the model we have just trained and set the path of the audio file to be processed. It should be noted here that the path corresponding to a single inference needs to go to the file name,
+Multiple inference settings can be set to the directory, here we set the path of the audio to be processed, the same as the training process, the file must be uploaded to the pod container, see
+Step 3 in the training process.</li>
+</ol>
+<p><img alt="img_20.png" src="../images-en/img_20.png" /></p>
+<ol>
+<li>Click Convert, and the audio to be processed will be changed. After the sound change is completed, the output audio will have corresponding audio, which can be played directly or downloaded.
+This process may fail, and you can try again after the failure.</li>
+</ol>
+<p><img alt="img_21.png" src="../images-en/img_21.png" /></p>
+        
+      </div>
+
+      <div class="copyrights">© 2009-2022 Aliyun.com 版权所有</div>
+    </div>
+  </div>
+  
+  <!--
+  MkDocs version      : 1.6.1
+  Docs Build Date UTC : 2026-03-23 08:52:05.454508+00:00
+  -->
+</body>
+</html>
